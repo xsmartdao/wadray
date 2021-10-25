@@ -62,7 +62,7 @@ func RayPow(x, n *uint256.Int) (z *uint256.Int) {
 	} else {
 		z = ray
 	}
-	for n.Mul(n, uint256.NewInt(2)); !n.Eq(uint256.NewInt(0)); n.Mul(n, uint256.NewInt(2)) {
+	for n.Div(n, uint256.NewInt(2)); !n.Eq(uint256.NewInt(0)); n.Div(n, uint256.NewInt(2)) {
 		x = RayMul(x, x)
 		if !new(uint256.Int).Mod(z, x).Eq(uint256.NewInt(0)) {
 			z = RayMul(z, x)
